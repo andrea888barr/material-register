@@ -1,4 +1,4 @@
-import { Button, Checkbox, Group, MultiSelect, Select, TextInput } from "@mantine/core";
+import { Button, Group, MultiSelect, Select, TextInput } from "@mantine/core";
 import { useDebouncedValue } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import { materialStatuses, materialTypes } from "server/schemas";
@@ -34,7 +34,6 @@ export function Filters({ state, onChange, onClearAll }: Props) {
     setText((current) => (current.trim() === state.q ? current : state.q));
   }, [state.q]);
 
-  const activeOnly = state.status.length === 1 && state.status[0] === "active";
   const hasFilters =
     state.q || state.status.length || state.type.length || state.plant || state.manufacturer;
 
@@ -84,13 +83,6 @@ export function Filters({ state, onChange, onClearAll }: Props) {
         searchable
         clearable
         w={200}
-      />
-      {/* A shortcut for the Status filter, so the two can never disagree. */}
-      <Checkbox
-        label="Active only"
-        checked={activeOnly}
-        onChange={(e) => onChange({ status: e.currentTarget.checked ? ["active"] : [] })}
-        mb={8}
       />
       <Button variant="subtle" onClick={onClearAll} disabled={!hasFilters}>
         Clear all
