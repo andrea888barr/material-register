@@ -31,6 +31,10 @@ A search/filter/sort/paginate table over ~5,000 material records. All table logi
 - **New filter**: add the field to `listMaterialsInput`, add a condition in `buildWhere`, add parse and serialise lines in `urlState.ts`, add the control in `Filters.tsx`, and add it to `clearAll` and `hasFilters`.
 - **Schema change**: edit `schema.ts`, run `npm run db:generate` and then `npm run db:migrate`, and update `seed.ts` if the column is required.
 
+## Writing style
+
+In the README, docs, commit messages and notes, use plain, descriptive language instead of developer slang or idioms. Say what something does ("comes with these features built in") rather than using a label ("batteries-included"). If you use a technical term, make sure it's the official one, not your own phrasing, and say which it is when it's unclear.
+
 ## Agent skills
 
 ### Domain docs
