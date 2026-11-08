@@ -1,0 +1,7 @@
+import { createTRPCReact } from "@trpc/react-query";
+import type { inferRouterOutputs } from "@trpc/server";
+import type { AppRouter } from "server/router";
+
+export const trpc = createTRPCReact<AppRouter>();
+
+export type MaterialRow = inferRouterOutputs<AppRouter>["materials"]["list"]["rows"][number];
